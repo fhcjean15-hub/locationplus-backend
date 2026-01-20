@@ -10,5 +10,5 @@ class AccountCategory extends Model
     use HasFactory;
 
     protected $table = 'account_categories';
-    protected $fillable = ['name','kind','max_annonces','description'];
+    protected $fillable = ['name','kind','max_annonces','description','price'];
 }

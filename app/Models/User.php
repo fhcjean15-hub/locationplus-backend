@@ -42,6 +42,7 @@ class User extends Authenticatable
         'activated',
         'payment_status',
         'payment_valid_until', // ajouté
+        'subscription_expires_at',
     ];
 
     /**
@@ -68,6 +69,7 @@ class User extends Authenticatable
             'verified_documents' => 'boolean',
             'activated' => 'boolean',
             'payment_valid_until' => 'datetime', // ajouté
+            'subscription_expires_at' => 'datetime',
         ];
     }
 

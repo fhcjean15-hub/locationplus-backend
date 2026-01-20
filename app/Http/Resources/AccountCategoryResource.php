@@ -20,6 +20,7 @@ class AccountCategoryResource extends JsonResource
             'kind'          => $this->kind, // 🔥 NEW
             'max_annonces'  => $this->max_annonces,
             'description'   => $this->description,
+            'price'         => $this->price,
             'created_at'    => $this->created_at,
         ];
     }

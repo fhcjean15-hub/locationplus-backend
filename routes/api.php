@@ -135,6 +135,25 @@ Route::prefix('account-categories')->group(function () {
 Route::get('/search', [SearchController::class, 'search']);
 Route::post('/notifications/report', [NotificationController::class, 'storeSignalement']);
 
+
+
+
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/payments/init', [PaymentController::class, 'store']);
+});
+
+Route::post('/fedapay/webhook', [PaymentController::class, 'fedapayWebhook']);
+
+Route::get('/payment/success', function () {
+    return response()->json(['status' => 'success']);
+})->name('payment.success');
+
+Route::get('/payment/cancel', function () {
+    return response()->json(['status' => 'cancel']);
+})->name('payment.cancel');
+
+
 /*
 |--------------------------------------------------------------------------
 | ROUTES PROTÉGÉES PAR SANCTUM
@@ -190,7 +209,7 @@ Route::middleware('auth:sanctum')->group(function () {
     |--------------------------------------------------------------------------
     */
     Route::get('/payments', [PaymentController::class, 'index']);
-    Route::post('/payments', [PaymentController::class, 'store']);
+    // Route::post('/payments', [PaymentController::class, 'store']);
     Route::get('/payments/{id}', [PaymentController::class, 'show']);
     Route::put('/payments/{id}', [PaymentController::class, 'update']);
     Route::delete('/payments/{id}', [PaymentController::class, 'destroy']);

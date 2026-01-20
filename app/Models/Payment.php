@@ -13,7 +13,7 @@ class Payment extends Model
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['user_id','amount','status','method','transaction_reference'];
+    protected $fillable = ['user_id','amount','status','method','transaction_reference','paid_at'];
 
     public function user()
     {

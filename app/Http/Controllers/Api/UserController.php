@@ -257,7 +257,7 @@ class UserController extends Controller
             return response()->json(['message' => 'Identifiants incorrects'], 401);
         }
 
-        $user = Auth::user();
+        $user = Auth::user()->load('accountCategory');
         $token = $user->createToken("auth")->plainTextToken;
 
         return response()->json([
